@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        form {
+            width: 50%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: inline-block;
+            margin-bottom: 10px;
+            color: #333;
+            vertical-align: middle; /* Aligns label text vertically with radio button */
+        }
+
+        input[type="radio"] {
+            display: inline-block;
+            vertical-align: middle; /* Aligns radio button vertically with label text */
+            margin-left: 5px; /* Adjusted margin */
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px; /* Added some space between radio buttons and submit button */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<h1>Savol: {{question.text}}</h1>
+<form action="{% url 'vote' question_id=question.id %}">
+    {% for i in options %}
+    <label for="{{i.id}}">
+        {{i.text}}
+        <input type="radio" id="{{i.id}}" name="option" value="{{i.id}}">
+    </label><br>
+    {% endfor %}
+    <input type="submit" value="Ovoz berish">
+</form>
+<a href="{% url 'result' question_id=question.id %}">Natijani ko'rish</a>
+</body>
+</html>

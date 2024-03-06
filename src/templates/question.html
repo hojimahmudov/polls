@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        ol {
+            list-style-type: none;
+            padding: 5;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        li a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        li a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<h1>Savollar ro'yxati</h1>
+<ol>
+    {% for i in questions %}
+        <li><a href="{% url 'detail' question_id=i.id %}">{{i.text}}</a></li>
+    {% endfor %}
+</ol>
+</body>
+</html>

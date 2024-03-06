@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        ol {
+            list-style-type: none;
+            padding: 0;
+            margin: 0 auto;
+            width: 50%;
+        }
+
+        li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        li:last-child {
+            border-bottom: none; /* Remove border from last li element */
+        }
+
+        li span {
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+<h1>{{question.text}}</h1>
+<ol>
+    {% for i in options %}
+        <li>{{i.text}} - <span>{{i.votes}} ta</span></li>
+    {% endfor %}
+</ol>
+</body>
+</html>
